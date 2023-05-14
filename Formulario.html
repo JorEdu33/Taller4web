@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Mi formulario</title>
+	<script src="verificar_datos.js"></script>
+	<style>
+		body {
+			background-color: #834646;
+		}
+	form {
+		background-color: #fff;
+		padding: 20px;
+		width: 500px;
+		margin: 0 auto;
+		box-shadow: 0px 0px 10px #999;
+		font-family: Arial, sans-serif;
+		border-radius: 5px;
+	}
+
+	h2 {
+		font-size: 28px;
+		margin-bottom: 20px;
+		color: #333;
+		text-align: center;
+	}
+
+	label {
+		display: block;
+		font-size: 16px;
+		color: #666;
+		margin-bottom: 5px;
+	}
+
+	input[type="text"], input[type="email"], input[type="password"], select {
+		padding: 10px;
+		width: 100%;
+		border: 1px solid #ccc;
+		border-radius: 4px;
+		box-sizing: border-box;
+		margin-bottom: 20px;
+		font-size: 16px;
+		color: #666;
+	}
+
+	input[type="submit"],input[type="reset"] {
+		background-color: #4CAF50;
+		color: white;
+		padding: 12px 20px;
+		border: none;
+		border-radius: 4px;
+		cursor: pointer;
+		font-size: 16px;
+		margin-top: 20px;
+		margin-bottom: 20px;
+		display: block;
+	}
+
+	input[type="submit"],input[type="reset"]:hover {
+		background-color: #45a049;
+	}
+	.error {
+			color: red;
+		}
+</style>
+</head>
+<body>
+	<form>
+		<h2>Datos del usuario</h2>
+		<label for="Id_usr">Id Usuario:</label>
+		<input type="text" id="Id_usr" name="Id_usr" placeholder="Escribe tu Id aquí">
+
+	<label for="pais">Pais:</label>
+	<select name="pais">
+		<option> Cuba</option>
+		<option>México</option>
+		<option>Nicaragua</option>
+		<option>Brasil</option>
+		<option>Colombia</option>
+		<option>Peru</option>
+	</select>
+
+    <label for="nombre">Nombre:</label>
+    <input type="text" id="nombre" name="nombre" placeholder="Escribe tu nombre aquí" oninput="verificarNombre()">
+	<div id="mensaje-error_nom" class="error"></div>
+
+    <label for="apellido">Apellido:</label>
+    <input type="text" id="apellido" name="apellido" placeholder="Escribe tu apellido aquí" oninput="verificarApellido()">
+	<div id="mensaje-error_ape" class="error"></div>
+
+    <label for="direccion">Dirección:</label>
+    <input type="text" id="direccion" name="direccion" placeholder="Escribe tu dirección aquí" oninput="verificarDireccion()">
+	<div id="mensaje-error_di" class="error"></div>
+
+    <label for="CC_Usuario">CC Usuario:</label>
+    <input type="text" id="CC_Usuario" name="CC_Usuario" placeholder="Escribe tu número de cédula aquí" oninput="verificarUsuario()">
+	<div id="mensaje-error_ccuser" class="error"></div>
+
+	<label for="ccpaswd">Ingresa tu contraseña:</label>
+	<input type="password" id="ccpaswd" name="ccpaswd" oninput="verificarContrasena()">
+	<br>
+	<label for="confpaswd">Confirma tu contraseña:</label>
+	<input type="password" id="confpaswd" name="confpaswd" oninput="verificarContrasena()">
+	<div id="mensaje-error_cont" class="error"></div>
+
+	<label for="correo">Correo electrónico:</label>
+	<input type="email" id="correo" name="correo" placeholder="Escribe tu correo electrónico aquí" oninput="verificarEmail()">
+	<div id="mensaje-error_email" class="error"></div>
+
+    <label for="telefono">Teléfono:</label>
+    <input type="text" id="telefono" name="telefono" placeholder="Escribe tu número de teléfono aquí">
+
+	<h1>Registro de gustos</h1>
+  <p>Selecciona si quieres habilitar la sección de gustos:</p>
+  <input type="radio" id="si" name="habilitar" value="si" onclick="habilitarGustos()">
+  <label for="si">Sí</label>
+  <input type="radio" id="no" name="habilitar" value="no" onclick="deshabilitarGustos()" checked>
+  <label for="no">No</label>
+  <div id="gustos" style="display: none;">
+
+    <p>Color favorito:</p>
+    <input type="color" id="color">
+
+    <p>Marca de carro favorita:</p>
+    <select id="marca">
+      <option value="Toyota">Toyota</option>
+      <option value="Ford">Ford</option>
+      <option value="Chevrolet">Chevrolet</option>
+      <option value="Nissan">Nissan</option>
+      <option value="Honda">Honda</option>
+    </select>
+
+    <p>Estilo de carro favorito:</p>
+    <select id="estilo">
+      <option value="Sedan">Sedan</option>
+      <option value="Camioneta">Camioneta</option>
+      <option value="Deportivo">Deportivo</option>
+      <option value="Híbrido">Híbrido</option>
+      <option value="Eléctrico">Eléctrico</option>
+    </select>
+
+    <p>Modelo de carro que más te gusta:</p>
+    <input type="text" id="modelo">
+
+   <label for="rango">Selecciona un valor:</label>
+    <input type="range" id="rango" name="rango" min="0" max="100000000" value="1000000" oninput="mostrarValor()">
+    <p>Valor actual: <span id="valor"></span></p>
+  </div>
+
+	<input type="submit" value="Enviar">
+    <input type="reset" value="Borrar">
+</form>
+<script src="validacion.js"></script>
+</body>
+</html>
